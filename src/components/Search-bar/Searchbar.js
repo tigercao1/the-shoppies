@@ -1,32 +1,29 @@
 import React, { Component } from 'react';
 import _ from 'lodash'
-import MovieController from './../../controllers/MovieController'
-import './Searchbar.scss';
+import './SearchBar.scss';
 
-class Searchbar extends Component {
+class SearchBar extends Component {
 
-    constructor() {
-        super();
-        this.state = {
-            title: null
-        };
-        this.movieController = new MovieController();
+    constructor(props) {
+        super(props);
         this.handleInput = this.handleInput.bind(this);
-        this.searchByTitle = _.debounce(this.movieController.searchByTitle, 500);
+        this.searchByTitle = _.debounce(this.props.searchByTitle, 500);
     }
 
     handleInput = (e) => {
-        this.searchByTitle(e.target.value);
+        this.props.setLoadingState(true);
+        let input = e.target.value.trim();
+        this.searchByTitle(e.target.value.trim());
     }
 
     render() {
         return (
             <div className="search-bar">
-                <input type="text" id="search-field" onChange={this.handleInput}></input>
+                <input type="text" id="search-field" placeholder="Search..." autoComplete="off" onChange={this.handleInput}></input>
             </div>
         )
     }
 
 }
 
-export default Searchbar;
+export default SearchBar;

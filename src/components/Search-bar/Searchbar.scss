@@ -1,0 +1,16 @@
+.search-bar {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    input[type=text] {
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 4px;
+        border: 2px solid rgb(128, 128, 128);
+        background-image: url('../../resources/images/searchicon.png');
+        background-position: 10px 10px; 
+        background-repeat: no-repeat;
+        background-size: 21px;
+        padding: 12px 20px 12px 40px;
+    }
+}
