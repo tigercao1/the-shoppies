@@ -1,4 +1,4 @@
-### The Shoppies
+## The Shoppies
 
 OMDB Movie database nomination UI
 
