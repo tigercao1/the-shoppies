@@ -12,8 +12,7 @@ class SearchBar extends Component {
 
     handleInput = (e) => {
         this.props.setLoadingState(true);
-        let input = e.target.value.trim();
-        this.searchByTitle(e.target.value.trim());
+        this.searchByTitle({title: e.target.value.trim()});
     }
 
     render() {

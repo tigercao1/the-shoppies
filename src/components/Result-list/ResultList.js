@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './ResultList.scss';
 import ResultListItem from './Result-list-item/ResultListItem'
+import PageBar from './Page-bar/PageBar';
 
 class ResultList extends Component {
 
@@ -10,6 +11,7 @@ class ResultList extends Component {
             movies: this.props.movieData || null,
             isLoading: this.props.isLoading || false
         }
+        this.updatePageNum = this.updatePageNum.bind(this);
     }
 
     componentDidUpdate(prevProps) {
@@ -21,21 +23,36 @@ class ResultList extends Component {
         }
     }
 
+    updatePageNum(num) {
+        this.props.updatePageNum(num)
+    }
+
     render() {
         return (
             <div className="result-list">
                 {
-                    this.state.isLoading ? 
-                        <div>Loading</div> :
-                            this.state.movies ? 
-                                (Array.isArray(this.state.movies) ? this.state.movies.map((movie, i) => {
-                                    return <ResultListItem
-                                        key={i}
-                                        title={movie.Title}
-                                        year={movie.Year}
-                                    ></ResultListItem>
-                                }) : <div>{this.state.movies}</div>) 
-                            : <div className="place-holder">Search something</div>
+                    this.state.isLoading ? <div>Loading</div> : 
+                        this.state.movies ? 
+
+                                (Array.isArray(this.state.movies) ? 
+                                    <div className="list-body">
+                                        {this.state.movies.map((movie, i) => {
+                                            return <ResultListItem
+                                                key={i}
+                                                title={movie.Title}
+                                                year={movie.Year}
+                                            ></ResultListItem>
+                                        })}
+                                        <PageBar 
+                                            updatePageNum={this.updatePageNum} 
+                                            currPage={this.props.currPage} 
+                                            numOfPages={this.props.numOfPages}
+                                        ></PageBar>
+                                    </div>
+                        : <div>{this.state.movies}</div>)
+                    : <div className="place-holder">Search something</div>
+                            
+
                 }
             </div>
         )

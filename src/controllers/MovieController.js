@@ -10,11 +10,12 @@ class MovieController {
     }
 
     async searchByTitle(query) {
+        let queryParameter = {apiKey: this.params.apiKey, s: query.title};
+        if (query.page) {
+            queryParameter.page = query.page
+        }
         let movies = await api.get('/', {
-            params: {
-                apiKey: this.params.apiKey,
-                s: query
-            }
+            params: queryParameter
         });
         return movies;
     }
