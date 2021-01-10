@@ -7,7 +7,12 @@ class SearchBar extends Component {
     constructor(props) {
         super(props);
         this.handleInput = this.handleInput.bind(this);
-        this.searchByTitle = _.debounce(this.props.searchByTitle, 500);
+        this.searchByTitle = this.searchByTitle.bind(this);
+        this.searchByTitle = _.debounce(this.searchByTitle, 500);
+    }
+
+    searchByTitle(title) {
+        this.props.searchByTitle(title);
     }
 
     handleInput = (e) => {

@@ -131,13 +131,15 @@ function App() {
     const onRemove = (id) => {
         let newList = nominations.filter((item) => item.id !== id);
         setNominations(newList)
-        let tempMovieData = [...movieData];
-        for (let i in tempMovieData) {
-            if (tempMovieData[i].id === id) {
-                tempMovieData[i].isNominated = false;
+        if (Array.isArray(movieData)) {
+            let tempMovieData = [...movieData];
+            for (let i in tempMovieData) {
+                if (tempMovieData[i].id === id) {
+                    tempMovieData[i].isNominated = false;
+                }
             }
+            setMovieData(tempMovieData);
         }
-        setMovieData(tempMovieData);
     }
 
     return (
