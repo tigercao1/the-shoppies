@@ -5,7 +5,7 @@ class PageBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currPage: this.props.currPage || 1
+            currPage: 1
         };
         this.updatePageNum = this.updatePageNum.bind(this);
         this.prevPage = this.prevPage.bind(this);
