@@ -22,6 +22,7 @@ class Nominations extends Component {
     render() {
         return (
             <div className="nominations">
+                <p>Nominations</p>
                 {
                     this.state.nominations.map((item, i) => {
                         return (<ListItem

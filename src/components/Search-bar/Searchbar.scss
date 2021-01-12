@@ -1,7 +1,12 @@
 .search-bar {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 100%;
+    padding: 20px;
+    background: white;
+    box-shadow: 1px 3px 10px grey;
+    border-radius: 5px;
+    box-sizing: border-box;
     input[type=text] {
         width: 100%;
         box-sizing: border-box;

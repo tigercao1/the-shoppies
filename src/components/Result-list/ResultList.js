@@ -41,8 +41,9 @@ class ResultList extends Component {
     render() {
         return (
             <div className="result-list">
+                <p>Search results</p>
                 {
-                    this.state.isLoading ? <div>Loading</div> : 
+                    this.state.isLoading ? <div className="placeholder">Loading</div> : 
                         this.state.movies ? 
                                 (Array.isArray(this.state.movies) ? 
                                     <div className="list-body">
@@ -61,8 +62,8 @@ class ResultList extends Component {
                                             numOfPages={this.props.numOfPages}
                                         ></PageBar>
                                     </div>
-                        : <div>{this.state.movies}</div>)
-                    : <div className="place-holder">Search something</div>
+                        : <div className="placeholder">{this.state.movies}</div>)
+                    : <div className="placeholder">Search something</div>
                             
 
                 }

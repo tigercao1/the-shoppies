@@ -23,6 +23,7 @@ class SearchBar extends Component {
     render() {
         return (
             <div className="search-bar">
+                <p>Movie Title</p>
                 <input type="text" id="search-field" placeholder="Search..." autoComplete="off" onChange={this.handleInput}></input>
             </div>
         )

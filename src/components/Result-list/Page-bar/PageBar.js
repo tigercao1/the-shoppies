@@ -37,7 +37,7 @@ class PageBar extends Component {
     render() {
         return (
             <div className="page-bar">
-                { this.state.currPage !== 1 ? <button className="page-button" onClick={this.prevPage}>Prev</button> : <div></div>}
+                <button className="page-button" disabled={this.state.currPage === 1} onClick={this.prevPage}>Prev</button>
                 <div className="page-num">
                     <select className="page-num-selection" onChange={this.updatePageNum} value={this.state.currPage}>
                         {
@@ -51,7 +51,7 @@ class PageBar extends Component {
                     </select>
                     <span> / {this.props.numOfPages}</span>
                 </div>
-                { this.state.currPage !== this.props.numOfPages ? <button className="page-button" onClick={this.nextPage}>Next</button> : <div></div>}
+                <button className="page-button" disabled={this.state.currPage === this.props.numOfPages} onClick={this.nextPage}>Next</button>
             </div>
         )
     }

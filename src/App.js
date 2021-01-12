@@ -144,6 +144,7 @@ function App() {
 
     return (
         <div className="App">
+            <h1>The Shoppie</h1>
             <SearchBar searchByTitle={searchByTitle} setLoadingState={setLoading}></SearchBar>
             <div className="app-body">
                 <ResultList 
