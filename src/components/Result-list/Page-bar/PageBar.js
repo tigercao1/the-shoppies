@@ -37,21 +37,25 @@ class PageBar extends Component {
     render() {
         return (
             <div className="page-bar">
-                <button className="page-button" disabled={this.state.currPage === 1} onClick={this.prevPage}>Prev</button>
-                <div className="page-num">
-                    <select className="page-num-selection" onChange={this.updatePageNum} value={this.state.currPage}>
-                        {
-                            Array.from(Array(this.props.numOfPages), (e, i) => {
-                                return <option
-                                    key={i+1}
-                                    value={i+1}
-                                >{i+1}</option>
-                            })
-                        }
-                    </select>
-                    <span> / {this.props.numOfPages}</span>
-                </div>
-                <button className="page-button" disabled={this.state.currPage === this.props.numOfPages} onClick={this.nextPage}>Next</button>
+                <button className="page-button" disabled={this.props.numOfPages === null || this.state.currPage === 1} onClick={this.prevPage}>Prev</button>
+                {this.props.numOfPages ? 
+                    <div className="page-num">
+                        <select className="page-num-selection" onChange={this.updatePageNum} value={this.state.currPage}>
+                            {
+                                Array.from(Array(this.props.numOfPages), (e, i) => {
+                                    return <option
+                                        key={i+1}
+                                        value={i+1}
+                                    >{i+1}</option>
+                                })
+                            }
+                        </select>
+                        <span> / {this.props.numOfPages}</span>
+                    </div> :
+                    <div></div>
+                }
+                
+                <button className="page-button" disabled={this.props.numOfPages === null || this.state.currPage === this.props.numOfPages} onClick={this.nextPage}>Next</button>
             </div>
         )
     }

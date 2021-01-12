@@ -43,7 +43,7 @@ class ResultList extends Component {
             <div className="result-list">
                 <p>Search results</p>
                 {
-                    this.state.isLoading ? <div className="placeholder">Loading</div> : 
+                    this.state.isLoading ? <div className="placeholder"><div className="loader"/></div> : 
                         this.state.movies ? 
                                 (Array.isArray(this.state.movies) ? 
                                     <div className="list-body">
@@ -57,16 +57,16 @@ class ResultList extends Component {
                                                 handleNomination = {this.handleNomination}
                                             ></ResultListItem>
                                         })}
-                                        <PageBar 
-                                            updatePageNum={this.updatePageNum} 
-                                            numOfPages={this.props.numOfPages}
-                                        ></PageBar>
                                     </div>
                         : <div className="placeholder">{this.state.movies}</div>)
                     : <div className="placeholder">Search something</div>
                             
 
                 }
+                <PageBar 
+                    updatePageNum={this.updatePageNum} 
+                    numOfPages={this.props.numOfPages}
+                ></PageBar>
             </div>
         )
     }

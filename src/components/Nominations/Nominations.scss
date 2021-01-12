@@ -1,5 +1,6 @@
 .nominations {
-    display:block;
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
     width: 100%;
     padding: 20px;
@@ -7,4 +8,5 @@
     margin-left: 10px;
     box-shadow: 1px 3px 10px grey;
     border-radius: 5px;
+    min-height: 244px;
 }

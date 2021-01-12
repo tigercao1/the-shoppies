@@ -27,6 +27,13 @@
     button {
         border-radius: 4px;
         border: 1px solid grey;
+        background: rgba(220,220,220,0.2);
+    }
+    .placeholder {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 

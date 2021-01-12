@@ -24,6 +24,7 @@ class Nominations extends Component {
             <div className="nominations">
                 <p>Nominations</p>
                 {
+                    this.state.nominations.length > 0 ?
                     this.state.nominations.map((item, i) => {
                         return (<ListItem
                             key={i}
@@ -32,7 +33,8 @@ class Nominations extends Component {
                             id={item.id}
                             onRemove={this.props.onRemove}
                         ></ListItem>)
-                    })
+                    }) :
+                    <div className="placeholder">Nominate your favorite movies</div>
                 }
             </div>
         )

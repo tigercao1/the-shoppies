@@ -8,15 +8,30 @@
     margin-right: 10px;
     box-shadow: 1px 3px 10px grey;
     border-radius: 5px;
-    min-height: 520px;
-    .placeholder {
-        flex-grow: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    min-height: 560px;
+    .loader {
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid grey;
+        height: 5vw;
+        width: 5vw;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
     }
+    
+    @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+    }
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
     .list-body {
         display: flex;
         flex-direction: column;
+        flex-grow: 1;
     }
 }
