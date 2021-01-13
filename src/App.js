@@ -25,6 +25,7 @@ function App() {
     const [numOfPages, setNumOfPages] = useState(null);
     const [currTitle, setCurrTitle] = useState("");
     const [nominations, setNominations] = useState(retrieveLocalData);
+    const [currPage, setCurrPage] = useState(1);
 
     //TODO: Save to local on unmount or save to local on nomination
 
@@ -69,6 +70,12 @@ function App() {
         return movies;
     }
 
+    const initSearch = () => {
+        setNumOfPages(null);
+        setMovieData(null);
+        setCurrPage(1);
+    }
+
     const searchByTitle = (query) => {
         if (query) {
             setCurrTitle(query.title);
@@ -106,6 +113,7 @@ function App() {
             title: currTitle,
             page: num
         }
+        setCurrPage(num);
         searchByTitle(query)
     }
 
@@ -145,7 +153,7 @@ function App() {
     return (
         <div className="App">
             <h1>The Shoppie</h1>
-            <SearchBar searchByTitle={searchByTitle} setLoadingState={setLoading}></SearchBar>
+            <SearchBar searchByTitle={searchByTitle} setLoadingState={setLoading} initSearch={initSearch}></SearchBar>
             <div className="app-body">
                 <ResultList 
                     movieData={movieData} 
@@ -154,6 +162,7 @@ function App() {
                     updatePageNum={updatePageNum}
                     handleNomination={updateNominations}
                     didFinishNominate={didFinishNominate}
+                    currPage={currPage}
                 ></ResultList>
                 <Nominations 
                     nominations={nominations}

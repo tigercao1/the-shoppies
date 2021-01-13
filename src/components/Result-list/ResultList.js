@@ -66,6 +66,7 @@ class ResultList extends Component {
                 <PageBar 
                     updatePageNum={this.updatePageNum} 
                     numOfPages={this.props.numOfPages}
+                    currPage={this.props.currPage}
                 ></PageBar>
             </div>
         )

@@ -5,33 +5,33 @@ class PageBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currPage: 1
+            currPage: this.props.currPage
         };
         this.updatePageNum = this.updatePageNum.bind(this);
         this.prevPage = this.prevPage.bind(this);
         this.nextPage = this.nextPage.bind(this);
     }
 
+    componentDidUpdate(prevState) {
+        if (prevState.currPage !== this.props.currPage) {
+            debugger
+            this.setState({
+                currPage: this.props.currPage
+            });
+        }
+    }
+
     updatePageNum(e) {
         let num = parseInt(e.target.value)
-        this.setState({currPage: num});
         this.props.updatePageNum(num);
     }
 
     prevPage() {
-        this.setState({
-            currPage: this.state.currPage - 1
-        }, () => {
-            this.props.updatePageNum(this.state.currPage);
-        });
+        this.props.updatePageNum(this.state.currPage - 1);
     }
 
     nextPage() {
-        this.setState({
-            currPage: this.state.currPage + 1
-        }, () => {
-            this.props.updatePageNum(this.state.currPage);
-        });
+        this.props.updatePageNum(this.state.currPage + 1);
     }
 
     render() {
