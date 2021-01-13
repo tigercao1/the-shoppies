@@ -2,7 +2,9 @@
 
 https://theshoppies.tigerc.space
 
-OMDB Movie database nomination UI
+OMDB Movie database nomination UI, responsive designed, try on the mobile!
+
+created using create-react-app
 
 ## Project Setup
 
