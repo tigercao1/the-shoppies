@@ -8,7 +8,7 @@ Created using create-react-app
 
 This React project is mixed with functional components and class components since I am still learning React as I code, getting a grasp of everything. In my opinion, writing and reading class components are more straight forward and easy to understand with clear view of a component's lifecycle. Functional components save a lot of hassle (e.g. function bindings), you code what you need.
 
-## Project Setup
+## Project Setup Instructions
 
 This project is an user interface utilizing the public api [http://www.omdbapi.com](http://www.omdbapi.com) with a personal api token.
 
