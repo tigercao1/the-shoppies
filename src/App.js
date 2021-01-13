@@ -26,6 +26,7 @@ function App() {
     const [currTitle, setCurrTitle] = useState("");
     const [nominations, setNominations] = useState(retrieveLocalData);
     const [currPage, setCurrPage] = useState(1);
+    const [showToast, setShowToast] = useState(false);
 
     //TODO: Save to local on unmount or save to local on nomination
 
@@ -36,7 +37,9 @@ function App() {
     useEffect(() => {
         if (nominations.length >= MAX_NOMINATIONS) {
             setDidFinishNominate(true);
+            setShowToast(true);
         } else {
+            setShowToast(false);
             setDidFinishNominate(false);
         }
         setLocalData(nominations);
@@ -152,7 +155,9 @@ function App() {
 
     return (
         <div className="App">
-            <h1>The Shoppie</h1>
+            <div className="title-bar">
+                The Shoppies
+            </div>
             <SearchBar searchByTitle={searchByTitle} setLoadingState={setLoading} initSearch={initSearch}></SearchBar>
             <div className="app-body">
                 <ResultList 
@@ -169,6 +174,7 @@ function App() {
                     onRemove={onRemove}
                 ></Nominations>
             </div>
+            {showToast ? <div className="snackbar">You had finished nominating your favorite movies!</div> : ""}
         </div>
     );
 }

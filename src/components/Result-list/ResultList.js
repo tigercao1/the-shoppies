@@ -44,7 +44,7 @@ class ResultList extends Component {
                 <p>Search results</p>
                 {
                     this.state.isLoading ? <div className="placeholder"><div className="loader"/></div> : 
-                        this.state.movies ? 
+                        this.state.movies && this.state.movies !== "Incorrect IMDb ID." ? 
                                 (Array.isArray(this.state.movies) ? 
                                     <div className="list-body">
                                         {this.state.movies.map((movie, i) => {
@@ -58,8 +58,8 @@ class ResultList extends Component {
                                             ></ResultListItem>
                                         })}
                                     </div>
-                        : <div className="placeholder">{this.state.movies}</div>)
-                    : <div className="placeholder">Search something</div>
+                                : <div className="placeholder">{this.state.movies}</div>)
+                        : <div className="placeholder">Search something</div>
                             
 
                 }

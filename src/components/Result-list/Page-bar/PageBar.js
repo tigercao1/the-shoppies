@@ -14,7 +14,6 @@ class PageBar extends Component {
 
     componentDidUpdate(prevState) {
         if (prevState.currPage !== this.props.currPage) {
-            debugger
             this.setState({
                 currPage: this.props.currPage
             });

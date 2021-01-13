@@ -10,9 +10,13 @@ class MovieController {
     }
 
     async searchByTitle(query) {
-        let queryParameter = {apiKey: this.params.apiKey, s: query.title, type: "movie"};
-        if (query.page) {
-            queryParameter.page = query.page
+        let queryParameter = {apiKey: this.params.apiKey};
+        if (query.title) {
+            queryParameter.s = query.title;
+            queryParameter.type = "movie";
+            if (query.page) {
+                queryParameter.page = query.page
+            }
         }
         let movies = await api.get('/', {
             params: queryParameter
